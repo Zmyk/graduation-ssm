@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace用于绑定接口 -->
+<mapper namespace="mapper.GoodMapper">
+	<insert id="save" parameterType="Good">
+		insert into goods(good_id,publish_user_phone,contact_phone,good_name,good_desc,price,origin_price,good_type_id,addr,date,qq) values(#{good_id},#{publish_user_phone},#{contact_phone},#{good_name},#{good_desc},#{price},#{origin_price},#{good_type_id},#{addr},#{date},#{qq})
+	</insert>
+	<insert id="saveImageUrl">
+		insert into imageaddr(id,url) values(#{id},#{url})
+	</insert>
+	<select id="getInSoldGood" resultType="HomePageModel">
+		select good_id,good_name, price,date,url from homepageview
+	</select>
+</mapper>

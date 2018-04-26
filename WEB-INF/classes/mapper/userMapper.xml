@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace用于绑定接口 -->
+<mapper namespace="mapper.UserMapper">
+	<insert id="save" parameterType="User">
+		insert into users(u_phone,u_name,u_password) values(#{u_phone},#{u_name},#{u_password})
+	</insert>  
+	
+	<update id="update" parameterType="User">
+		update s_user set user_name=#{name},user_birthday=#{birthday},user_salary=#{salary} where user_id=#{id}
+	</update>
+		
+	<delete id="delete" parameterType="int">
+		delete from s_user where user_id = #{id}
+	</delete>
+		
+	<select id="findByPhone" parameterType="java.lang.String" resultType="User">
+		select u_phone,u_name,u_password from users where u_phone = #{u_phone}
+	</select>
+		
+	<select id="findByPhoneAndPassword" resultType="User">
+		select u_phone,u_password from users where u_phone = #{u_phone} and u_password = #{u_password}
+	</select>
+	
+	
+	
+	<select id="findAll" resultType="User">
+		select user_id id,user_name name, user_birthday birthday,user_salary salary from s_user
+	</select>  
+</mapper>
