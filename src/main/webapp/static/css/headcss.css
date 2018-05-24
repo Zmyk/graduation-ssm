@@ -1,0 +1,91 @@
+a:link
+{
+	text-decoration: none;
+}
+a:visited
+{
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: none;
+}
+a:active
+{
+	text-decoration: none;
+}
+
+html 
+{ 
+	overflow-x:hidden;
+	overflow-y:hidden; 
+}
+
+.head-warp1
+{
+	height: 60px;
+	background: #11CD6E;
+}
+
+.head-warp2
+{
+	margin-top: 15px;
+	height: 45px;
+	background: #FFFFFF;
+}
+
+.div1
+{
+	height: 60px;
+	line-height: 60px;
+	font-size: 40px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.div2
+{
+	line-height: 20px;
+	margin-top: 10px;
+	font-size: 15px;
+	color: #FFFFFF;
+}
+.div3
+{
+	line-height: 20px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	color: #FFFFFF;
+}
+.div4
+{
+	height: 60px;
+	font-size: 25px;
+	color: #FFFFFF;
+	line-height:60px;
+	text-align: center;
+}
+
+.a{
+
+	font-size: 25px;
+	color: #FFFFFF;
+}
+
+.navfont
+{
+	font-size: 21px;
+	color: #FFFFFF;
+}
+
+.rmline 
+{
+	border-bottom-width: 0 !important;
+}
+.mybtn
+{
+	background: #11CD6E;
+}
+.li
+{
+	width: 100px;
+}

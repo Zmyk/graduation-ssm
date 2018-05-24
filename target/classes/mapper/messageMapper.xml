@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace用于绑定接口 -->
+<mapper namespace="mapper.MessageMapper">
+	<insert id="addMessage" parameterType="User">
+		insert into message(u_phone,good_id,content,date) values(#{u_phone},#{good_id},#{content},#{date})
+	</insert> 
+	<select id="getReceivedMessage" resultType="MessageModel">
+		select good_id,u_phone,content,date,good_name from messageview where publish_user_phone = #{publish_user_phone}
+	</select>
+	<select id="getPublishMessage" resultType="MessageModel">
+		select good_id,u_phone,content,date,good_name from messageview where u_phone = #{u_phone}
+	</select>
+</mapper>

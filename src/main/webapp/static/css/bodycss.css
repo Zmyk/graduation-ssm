@@ -1,0 +1,61 @@
+a:link
+{
+	text-decoration: none;
+}
+a:visited
+{
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: none;
+}
+a:active
+{
+	text-decoration: none;
+}
+
+.image-good
+{
+	width: 200px;
+	height: 200px;
+}
+.image-lunbotu
+{
+	width: 600px;
+	height: 250px;
+}
+
+.image-good-div
+{
+	margin-top: 15px;
+}
+.leibie
+{
+	position: fixed;
+    left:115px;
+    width: 15%;
+}
+.a_navfont
+{
+	color: #000000;
+}
+.image-tianmao
+{
+	width: 200px;
+	height: 200px;
+}
+.a_font
+{
+	color: #11CD6E;
+}
+
+.li-background
+{
+	background: #FFFFFF;
+	border: 3px solid #F0F0F0;
+}
+.div-tianmao
+{
+	margin-top: 20px;
+}

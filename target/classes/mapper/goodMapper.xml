@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace用于绑定接口 -->
+<mapper namespace="mapper.GoodMapper">
+	<insert id="save" parameterType="Good">
+		insert into goods(good_id,publish_user_phone,contact_phone,good_name,good_desc,price,origin_price,good_type_id,addr,date,qq) values(#{good_id},#{publish_user_phone},#{contact_phone},#{good_name},#{good_desc},#{price},#{origin_price},#{good_type_id},#{addr},#{date},#{qq})
+	</insert>
+	<insert id="saveImageUrl">
+		insert into imageaddr(id,url) values(#{id},#{url})
+	</insert>
+	<select id="getInSoldGood" resultType="HomePageModel">
+		select good_id,good_name, price,date,url from homepageview
+	</select>
+	<select id="getGoodType" resultType="GoodType">
+		select id,type_name from goodtype
+	</select>
+	<select id="getSearchGoodByName" resultType="HomePageModel">
+		select good_id,good_name, price,date,url from homepageview where good_name like "%"#{str}"%"
+	</select>
+	<select id="getSearchGoodByType" resultType="HomePageModel">
+		select good_id,good_name, price,date,url from homepageview where good_type_id=#{type_id}
+	</select>
+	<select id="getGoodDetailWithoutUrl" resultType="GoodDetail">
+		select good_id,good_name, price,origin_price,date,qq,contact_phone,u_name,good_desc from gooddetailwithouturlview where good_id=#{good_id}
+	</select>
+	<select id="getGoodDetailUrl" resultType="java.lang.String">
+		select url from imageaddr where id=#{good_id}
+	</select>
+	<insert id="AddFavorate">
+		insert into favorate(u_phone,good_id,date,favorateid) values(#{u_phone},#{good_id},#{date},#{favorateid})
+	</insert>
+	<select id="getFavorateByGoodIdAndUphone" resultType="Favorate">
+		select good_id,u_phone,date from favorate where good_id=#{good_id} and u_phone=#{u_phone}
+	</select>
+	<select id="getFavorateByUphone" resultType="FavorateView">
+		select good_id,good_name,date,price,url from favorateview where u_phone=#{u_phone}
+	</select>
+	<delete id="DeleteFavorate">
+		delete from favorate where favorateid = #{favorateid}
+	</delete>
+	<select id="getPublishByUphone" resultType="MyPublishModel">
+		select good_id,good_name,date,price,url,audit_state,is_solded from publishgoodsview where publish_user_phone=#{u_phone}
+	</select>
+	<update id="DeletePublish">
+		update goods set is_solded = 2 where good_id=#{good_id}
+	</update>
+	<select id="getAuditGood" resultType="AuditGoodModel">
+		select good_id,good_name,date,price,url,audit_state from auditgoodview
+	</select>
+	<update id="isAccept">
+		update goods set audit_state = 2 where good_id=#{good_id}
+	</update>
+	<update id="isRefuse">
+		update goods set audit_state = 3 where good_id=#{good_id}
+	</update>
+</mapper>
