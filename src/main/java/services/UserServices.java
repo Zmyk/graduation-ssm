@@ -3,19 +3,10 @@
  */
 package services;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
 
-import javax.servlet.http.HttpServletRequest;
-
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import beans.Good;
-import beans.Message;
 import beans.User;
 import mapper.UserMapper;
 import utils.CommonUtil;
@@ -43,12 +34,24 @@ public class UserServices {
 	}
 	
 	public boolean isRegister(String registerPhone,String phoneNumber,String checkCode,String sessionCheckCode,User user){
-		return CheckCodeServices.isComparedCorrect(registerPhone,phoneNumber) && usermapper.findByPhone(phoneNumber)==null && CheckCodeServices.isComparedCorrect(checkCode, sessionCheckCode) && usermapper.save(user) == 1;
+		return CommonUtil.isComparedCorrect(registerPhone,phoneNumber) && usermapper.findByPhone(phoneNumber)==null && CommonUtil.isComparedCorrect(checkCode, sessionCheckCode) && usermapper.save(user) == 1;
 	}
 
 	
 	public boolean isresetPassword(String registerPhone, String phoneNumber, String checkCode, String sessionCheckCode, User user) {	
-		return CheckCodeServices.isComparedCorrect(registerPhone,phoneNumber) && usermapper.findByPhone(phoneNumber)!=null && CheckCodeServices.isComparedCorrect(checkCode, sessionCheckCode) && usermapper.resetPassword(user) == 1;
+		return CommonUtil.isComparedCorrect(registerPhone,phoneNumber) && usermapper.findByPhone(phoneNumber)!=null && CommonUtil.isComparedCorrect(checkCode, sessionCheckCode) && usermapper.resetPassword(user) == 1;
+	}
+	public ArrayList<User> getUser() {
+		return usermapper.getUser();
+	}
+	public boolean isClosure(String u_phone) {
+		return usermapper.isClosure(u_phone) == 1;
+	}
+	public ArrayList<User> getClosureUser() {
+		return usermapper.getClosureUser();
+	}
+	public boolean delClosureUser(String u_phone) {
+		return usermapper.isDelClosureUser(u_phone) == 1;
 	}
 
 

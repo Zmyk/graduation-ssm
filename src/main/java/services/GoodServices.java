@@ -123,6 +123,12 @@ public class GoodServices {
 	public boolean isRefuse(String good_id) {
 		return goodmapper.isRefuse(good_id)==1;
 	}
+	public boolean isClosure(String u_phone) {
+		return goodmapper.isClosure(u_phone) != 0;
+	}
+	public boolean delClosure(String u_phone) {
+		return goodmapper.isDelClosure(u_phone) != 0;
+	}
 
 
 }

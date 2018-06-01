@@ -46,12 +46,18 @@
 		update goods set is_solded = 2 where good_id=#{good_id}
 	</update>
 	<select id="getAuditGood" resultType="AuditGoodModel">
-		select good_id,good_name,date,price,url,audit_state from auditgoodview
+		select good_id,good_name,date,price,url,audit_state,publish_user_phone from auditgoodview
 	</select>
 	<update id="isAccept">
 		update goods set audit_state = 2 where good_id=#{good_id}
 	</update>
 	<update id="isRefuse">
 		update goods set audit_state = 3 where good_id=#{good_id}
+	</update>
+	<update id="isClosure">
+		update goods set audit_state = 3 where publish_user_phone=#{u_phone}
+	</update>
+	<update id="isDelClosure">
+		update goods set audit_state = 1 where publish_user_phone=#{u_phone}
 	</update>
 </mapper>

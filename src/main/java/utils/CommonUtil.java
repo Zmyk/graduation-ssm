@@ -13,6 +13,14 @@ import java.util.UUID;
  */
 public class CommonUtil {
 	
+	public static boolean isComparedCorrect(String str1,String str2){
+		if(str1!=null && str1.equals(str2)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	
 	public static String getUniqueSign(){
 		String uuid = null;

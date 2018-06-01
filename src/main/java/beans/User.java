@@ -5,18 +5,19 @@ public class User {
 	private String u_phone;
 	private String u_name;
 	private String u_password;
-	
+	private int state;
 	
 	
 	public User() {
 		
 	}
 
-	public User(String u_phone, String u_name, String u_password) {
+	public User(String u_phone, String u_name, String u_password,int state) {
 		super();
 		this.u_phone = u_phone;
 		this.u_name = u_name;
 		this.u_password = u_password;
+		this.state = state;
 	}
 	
 	public String getU_phone() {
@@ -36,6 +37,14 @@ public class User {
 	}
 	public void setU_password(String u_password) {
 		this.u_password = u_password;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 	
 	

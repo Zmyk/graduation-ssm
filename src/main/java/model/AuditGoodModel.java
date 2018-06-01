@@ -14,10 +14,12 @@ public class AuditGoodModel {
 	private int price;
 	private String url;
 	private int audit_state;
+	private String publish_user_phone;
+	
 	public AuditGoodModel() {
 		super();
 	}
-	public AuditGoodModel(String date, String good_name, String good_id, int price, String url, int audit_state) {
+	public AuditGoodModel(String date, String good_name, String good_id, int price, String url, int audit_state,String publish_user_phone) {
 		super();
 		this.date = date;
 		this.good_name = good_name;
@@ -25,7 +27,15 @@ public class AuditGoodModel {
 		this.price = price;
 		this.url = url;
 		this.audit_state = audit_state;
+		this.publish_user_phone = publish_user_phone;
 	}
+	public String getPublish_user_phone() {
+		return publish_user_phone;
+	}
+	public void setPublish_user_phone(String publish_user_phone) {
+		this.publish_user_phone = publish_user_phone;
+	}
+	
 	public String getDate() {
 		return date;
 	}

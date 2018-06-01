@@ -40,5 +40,7 @@ public interface GoodMapper {
 	ArrayList<AuditGoodModel> getAuditGood();
 	int isAccept(@Param("good_id")String good_id);
 	int isRefuse(@Param("good_id")String good_id);
+	int isClosure(@Param("u_phone")String u_phone);
+	int isDelClosure(@Param("u_phone")String u_phone);
 
 }
